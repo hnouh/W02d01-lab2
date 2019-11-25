@@ -9,6 +9,16 @@ Remember:
 ## Calculate the Cube
 Write a function `calculateCube` that takes a single number and prints the volume of a cube made from that number.
 
+var i=0
+var result=1;
+function calculateCube(num){
+  while(i<3){
+  result=result*num;
+  i++;
+}
+return result;
+}
+
 ```javascript
 console.log(calculateCube(5));
 ```
@@ -16,22 +26,57 @@ console.log(calculateCube(5));
 > => 125
 
 
+
 # 2
 ## Is a Vowel?
 Write a function `isAVowel` that takes a character (i.e. a string of length 1) and returns true if it is a vowel, false otherwise. The vowel could be upper or lower case.
 
 ```javascript
-console.log(isAVowel("a"));
-```
 
 > => true
+
+function isAVowel(str){
+  var vowel=["a","A","e","E","i","I","u","U","o","O"];
+  while(vowel.includes(str)==true){    
+    return true;
+  }return false;
+}
+
+console.log(isAVowel("a"));
 
 
 # 3
 ## Get Two Lengths
 Write a function `getTwoLengths` that accepts two parameters (strings). The function should return an _array_ of numbers where each number is the length of the corresponding string.
 
+
 ```javascript
+
+function getTwoLengths(str1,str2){
+
+  var result1=0;
+  var result2=0;
+  var resultArr=[];
+  
+  var lengthWord1=str1.length;
+  var lengthWord2=str2.length;
+
+  while(lengthWord1>=1){
+    result1++;
+    lengthWord1=lengthWord1-1;
+  }
+
+  while(lengthWord2>=1){
+    result2++;
+    lengthWord2=lengthWord2-1;
+  }
+  
+    resultArr.push(result1);
+    resultArr.push(result2);
+
+  return resultArr;
+}
+
 console.log(getTwoLengths("Hank", "Hippopopalous"));
 ```
 
@@ -45,6 +90,21 @@ Write a function `getMultipleLengths` that accepts a single parameter as an argu
 
 
 ```javascript
+
+function getMultipleLengths(arr){
+
+  var resultArr=[];
+  var i=arr.length-1;
+  var lengthWord=0;
+
+  while(i>=0){
+    lengthWord=arr[i].length;
+    resultArr.push(lengthWord);
+    i--;
+  }
+  return resultArr.reverse();
+}
+
 console.log(getMultipleLengths(["hello", "what", "is", "up", "dude"]));
 ```
 
@@ -56,6 +116,21 @@ console.log(getMultipleLengths(["hello", "what", "is", "up", "dude"]));
 Define a function `maxOfThree` that takes three numbers as arguments and returns the largest of them. If all numbers are the same, it doesn't matter which one is returned. If the two largest numbers are the same, one of them should be returned.
 
 ```javascript
+function maxOfThree(num1,num2,num3){
+var max=0;
+while(num1>=num2&&num1>=num3){
+max=num1;
+return max;
+}
+while(num2>=num1&&num2>=num3){
+max=num2;
+return max;
+}
+while(num3>=num2&&num3>=num1){
+max=num3;
+return max;
+}
+}
 console.log(maxOfThree(6, 9, 1));
 ```
 
@@ -68,6 +143,25 @@ console.log(maxOfThree(6, 9, 1));
 Write a function `printLongestWord` that accepts a single argument, an **array of strings**. The method should return the longest word in the array. In case of a tie, the method should return the word that appears first in the array.
 
 ```javascript
+
+function printLongestWord(arr){
+
+  var resultArr=[];
+  var i=arr.length-1;
+  var lengthWord=0;
+  var longestWord=0;
+  while(i>=0){
+    lengthWord=arr[i].length;
+    if(lengthWord>=longestWord){
+    longestWord=lengthWord;
+    resultArr.push(arr[i]);
+    }
+    i--;
+  }   
+  resultArr.reverse();
+  return resultArr[0]
+}
+
 console.log(printLongestWord(["BoJack", "Princess", "Diane", "a", "Max", "Peanutbutter", "big", "blob"]));
 ```
 
@@ -84,6 +178,18 @@ For example, the transmogrified result of 5, 3, and 2 is `(5 times 3) to the
 power of 2` is 225.
 
 ```javascript
+
+function transmogrify(num1,num2,num3){
+var result=1;
+var result2=1;
+result=num1*num2;
+while(num3>=1){
+result2=result2*result;
+num3--;
+}
+return result2;
+}
+
 console.log(transmogrify(5, 3, 2));
 ```
 
